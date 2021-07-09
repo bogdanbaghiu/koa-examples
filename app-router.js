@@ -25,6 +25,14 @@ function postMessage() {
     return "You just called the post method at '/hello'!\n";
 };
 
+router.all('/test', async function (ctx) {
+    ctx.body = allMessage();
+});
+
+function allMessage() {
+    return "All HTTP calls regardless of the verb will get this response";
+};
+
 app.use(router.routes());
 
 app.listen(3000);
